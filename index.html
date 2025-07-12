@@ -7,18 +7,39 @@
     <meta name="description" content="Descubre la oportunidad de negocio con Gano Excel - Productos con Ganoderma Lucidum y sistema de red de mercadeo">
     <meta name="keywords" content="Gano Excel, Ganoderma, negocio, red de mercadeo, El Salvador">
     
+    <!-- CONFIGURACIÓN PARA VERCEL -->
+    <!-- 1. Crear archivo vercel.json en la raíz del proyecto con:
+    {
+      "functions": {
+        "pages/api/analytics.js": {
+          "runtime": "@vercel/node"
+        }
+      }
+    }
+    -->
+    <!-- 2. Variables de entorno en Vercel Dashboard:
+         NEXT_PUBLIC_GA_ID = G-XXXXXXXXXX (tu ID de Google Analytics)
+    -->
+    
     <!-- Preload critical resources -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     
-    <!-- Google Analytics -->
+    <!-- Google Analytics - REEMPLAZA 'GA_MEASUREMENT_ID' con tu ID real de Google Analytics -->
+    <!-- Ejemplo: G-XXXXXXXXXX -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=GA_MEASUREMENT_ID"></script>
     <script>
         window.dataLayer = window.dataLayer || [];
         function gtag(){dataLayer.push(arguments);}
         gtag('js', new Date());
-        gtag('config', 'GA_MEASUREMENT_ID');
+        
+        // Configuración dinámica para Vercel (usar variables de entorno en producción)
+        const GA_ID = 'GA_MEASUREMENT_ID'; // Reemplazar con tu ID real
+        gtag('config', GA_ID);
     </script>
+    
+    <!-- Vercel Analytics (opcional) - Se activa automáticamente en producción -->
+    <script defer src="/_vercel/insights/script.js"></script>
     
     <!-- Performance monitoring -->
     <script>
@@ -681,6 +702,12 @@
     </div>
 
     <script>
+        // CONFIGURACIÓN DE ANALYTICS PARA VERCEL
+        // 1. Reemplaza 'GA_MEASUREMENT_ID' arriba con tu ID real de Google Analytics
+        // 2. En Vercel Dashboard > Project Settings > Environment Variables, agrega:
+        //    NEXT_PUBLIC_GA_ID = tu_google_analytics_id
+        // 3. Para Vercel Analytics, instala: npm i @vercel/analytics
+        
         // Performance optimizations
         document.addEventListener('DOMContentLoaded', function() {
             // Lazy loading for animations
@@ -747,12 +774,15 @@
             });
         });
 
-        // Error tracking
+        // Error tracking - Solo si Google Analytics está configurado
         window.addEventListener('error', function(e) {
-            gtag('event', 'exception', {
-                description: e.message,
-                fatal: false
-            });
+            if (typeof gtag === 'function') {
+                gtag('event', 'exception', {
+                    description: e.message,
+                    fatal: false,
+                    page_title: 'Gano Excel - Presentación'
+                });
+            }
         });
     </script>
 </body>
