@@ -1,0 +1,759 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gano Excel - Presentación Empresarial</title>
+    <meta name="description" content="Descubre la oportunidad de negocio con Gano Excel - Productos con Ganoderma Lucidum y sistema de red de mercadeo">
+    <meta name="keywords" content="Gano Excel, Ganoderma, negocio, red de mercadeo, El Salvador">
+    
+    <!-- Preload critical resources -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    
+    <!-- Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=GA_MEASUREMENT_ID"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'GA_MEASUREMENT_ID');
+    </script>
+    
+    <!-- Performance monitoring -->
+    <script>
+        // Core Web Vitals tracking
+        function sendToAnalytics(metric) {
+            gtag('event', metric.name, {
+                event_category: 'Web Vitals',
+                value: Math.round(metric.name === 'CLS' ? metric.value * 1000 : metric.value),
+                event_label: metric.id,
+                non_interaction: true,
+            });
+        }
+        
+        // Import web-vitals library
+        import('https://unpkg.com/web-vitals?module').then(({getCLS, getFID, getFCP, getLCP, getTTFB}) => {
+            getCLS(sendToAnalytics);
+            getFID(sendToAnalytics);
+            getFCP(sendToAnalytics);
+            getLCP(sendToAnalytics);
+            getTTFB(sendToAnalytics);
+        });
+    </script>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            font-size: clamp(14px, 2.5vw, 16px);
+            overflow-x: hidden;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: clamp(10px, 3vw, 20px);
+        }
+
+        .slide {
+            background: white;
+            border-radius: clamp(8px, 2vw, 15px);
+            padding: clamp(20px, 5vw, 40px);
+            margin: clamp(10px, 3vw, 20px) 0;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+            opacity: 0;
+            transform: translateY(30px);
+            animation: slideIn 0.8s ease-out forwards;
+            will-change: transform, opacity;
+        }
+
+        @keyframes slideIn {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .slide:nth-child(2) { animation-delay: 0.1s; }
+        .slide:nth-child(3) { animation-delay: 0.2s; }
+        .slide:nth-child(4) { animation-delay: 0.3s; }
+        .slide:nth-child(5) { animation-delay: 0.4s; }
+        .slide:nth-child(6) { animation-delay: 0.5s; }
+        .slide:nth-child(7) { animation-delay: 0.6s; }
+        .slide:nth-child(8) { animation-delay: 0.7s; }
+        .slide:nth-child(9) { animation-delay: 0.8s; }
+        .slide:nth-child(10) { animation-delay: 0.9s; }
+
+        h1 {
+            color: #2c3e50;
+            text-align: center;
+            margin-bottom: clamp(15px, 4vw, 30px);
+            font-size: clamp(1.8rem, 6vw, 2.5rem);
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.1);
+            line-height: 1.2;
+        }
+
+        h2 {
+            color: #e74c3c;
+            margin-bottom: clamp(10px, 3vw, 20px);
+            font-size: clamp(1.3rem, 4vw, 1.8rem);
+            border-bottom: 3px solid #e74c3c;
+            padding-bottom: 10px;
+            line-height: 1.3;
+        }
+
+        h3 {
+            color: #3498db;
+            margin: clamp(10px, 3vw, 20px) 0 clamp(8px, 2vw, 15px) 0;
+            font-size: clamp(1.1rem, 3vw, 1.3rem);
+            line-height: 1.4;
+        }
+
+        .intro {
+            text-align: center;
+            background: linear-gradient(135deg, #3498db, #2980b9);
+            color: white;
+            font-size: clamp(1rem, 3vw, 1.2rem);
+        }
+
+        .intro h1 {
+            color: white;
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(min(200px, 100%), 1fr));
+            gap: clamp(10px, 3vw, 20px);
+            margin: clamp(10px, 3vw, 20px) 0;
+        }
+
+        .stat-card {
+            background: linear-gradient(135deg, #f39c12, #e67e22);
+            color: white;
+            padding: clamp(15px, 4vw, 20px);
+            border-radius: 10px;
+            text-align: center;
+            transform: scale(1);
+            transition: transform 0.3s ease;
+            min-height: 80px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .stat-card:hover {
+            transform: scale(1.02);
+        }
+
+        .stat-number {
+            font-size: clamp(1.5rem, 4vw, 2rem);
+            font-weight: bold;
+            display: block;
+            margin-bottom: 5px;
+        }
+
+        .benefits-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(min(250px, 100%), 1fr));
+            gap: clamp(8px, 2vw, 15px);
+            margin: clamp(10px, 3vw, 20px) 0;
+        }
+
+        .benefit-item {
+            background: #ecf0f1;
+            padding: clamp(10px, 3vw, 15px);
+            border-radius: 8px;
+            border-left: 4px solid #27ae60;
+            font-size: clamp(0.9rem, 2.5vw, 1rem);
+        }
+
+        .process-steps {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+            gap: clamp(10px, 3vw, 15px);
+            margin: clamp(20px, 5vw, 30px) 0;
+            justify-items: center;
+        }
+
+        .step {
+            background: linear-gradient(135deg, #9b59b6, #8e44ad);
+            color: white;
+            padding: clamp(15px, 4vw, 20px);
+            border-radius: 50%;
+            width: clamp(100px, 20vw, 120px);
+            height: clamp(100px, 20vw, 120px);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            text-align: center;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+            font-size: clamp(0.8rem, 2.5vw, 0.9rem);
+        }
+
+        .step-number {
+            font-size: clamp(1.5rem, 4vw, 2rem);
+            margin-bottom: 5px;
+        }
+
+        .highlight-box {
+            background: linear-gradient(135deg, #1abc9c, #16a085);
+            color: white;
+            padding: clamp(15px, 4vw, 20px);
+            border-radius: 10px;
+            margin: clamp(15px, 4vw, 20px) 0;
+            text-align: center;
+            font-size: clamp(1rem, 2.8vw, 1.1rem);
+            line-height: 1.5;
+        }
+
+        .pyramid-comparison {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: clamp(15px, 4vw, 30px);
+            margin: clamp(15px, 4vw, 20px) 0;
+        }
+
+        .pyramid-box {
+            padding: clamp(15px, 4vw, 20px);
+            border-radius: 10px;
+            text-align: center;
+        }
+
+        .traditional-pyramid {
+            background: #e74c3c;
+            color: white;
+        }
+
+        .gano-pyramid {
+            background: #27ae60;
+            color: white;
+        }
+
+        .product-showcase {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(min(150px, 100%), 1fr));
+            gap: clamp(10px, 3vw, 15px);
+            margin: clamp(15px, 4vw, 20px) 0;
+        }
+
+        .product-item {
+            background: #34495e;
+            color: white;
+            padding: clamp(12px, 3vw, 15px);
+            border-radius: 8px;
+            text-align: center;
+            font-weight: bold;
+            font-size: clamp(0.9rem, 2.5vw, 1rem);
+            min-height: 60px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        ul {
+            margin: clamp(10px, 3vw, 15px) 0;
+            padding-left: clamp(15px, 4vw, 20px);
+        }
+
+        li {
+            margin: clamp(5px, 2vw, 8px) 0;
+            font-size: clamp(0.9rem, 2.5vw, 1rem);
+            line-height: 1.5;
+        }
+
+        .cta {
+            background: linear-gradient(135deg, #e74c3c, #c0392b);
+            color: white;
+            text-align: center;
+            font-size: clamp(1rem, 3vw, 1.2rem);
+        }
+
+        .cta h2 {
+            color: white;
+            border-bottom: 3px solid white;
+        }
+
+        .final-message {
+            background: linear-gradient(135deg, #27ae60, #2ecc71);
+            color: white;
+            text-align: center;
+            font-size: clamp(1rem, 3vw, 1.2rem);
+        }
+
+        .final-message h2 {
+            color: white;
+            border-bottom: 3px solid white;
+        }
+
+        /* Media queries for better mobile optimization */
+        @media (max-width: 480px) {
+            .container {
+                padding: 10px;
+            }
+            
+            .slide {
+                padding: 15px;
+                margin: 10px 0;
+            }
+            
+            .pyramid-comparison {
+                gap: 15px;
+            }
+            
+            .process-steps {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            
+            .stats-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (min-width: 481px) and (max-width: 768px) {
+            .pyramid-comparison {
+                grid-template-columns: 1fr 1fr;
+            }
+            
+            .process-steps {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (min-width: 769px) {
+            .pyramid-comparison {
+                grid-template-columns: 1fr 1fr;
+            }
+            
+            .process-steps {
+                grid-template-columns: repeat(4, 1fr);
+            }
+        }
+
+        /* Landscape mobile optimization */
+        @media (max-height: 500px) and (orientation: landscape) {
+            .slide {
+                padding: 15px 20px;
+                margin: 8px 0;
+            }
+            
+            h1 {
+                font-size: 1.8rem;
+                margin-bottom: 15px;
+            }
+            
+            h2 {
+                font-size: 1.4rem;
+                margin-bottom: 10px;
+            }
+            
+            .process-steps {
+                grid-template-columns: repeat(4, 1fr);
+                margin: 15px 0;
+            }
+            
+            .step {
+                width: 80px;
+                height: 80px;
+                font-size: 0.7rem;
+            }
+            
+            .step-number {
+                font-size: 1.3rem;
+            }
+        }
+
+        /* Performance optimizations */
+        .slide {
+            contain: layout style paint;
+        }
+
+        /* Reduce motion for users who prefer it */
+        @media (prefers-reduced-motion: reduce) {
+            .slide {
+                animation: none;
+                opacity: 1;
+                transform: none;
+            }
+            
+            .stat-card:hover {
+                transform: none;
+            }
+        }
+
+        /* High contrast mode support */
+        @media (prefers-contrast: high) {
+            body {
+                background: #000;
+            }
+            
+            .slide {
+                border: 2px solid #fff;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- Slide 1: Introducción -->
+        <div class="slide intro">
+            <h1>🍄 GANO EXCEL</h1>
+            <p><strong>Empresa líder en productos de bienestar con Ganoderma Lucidum</strong></p>
+            <p>Descubre una oportunidad de negocio respaldada por casi 30 años de experiencia y presencia en más de 70 países</p>
+        </div>
+
+        <!-- Slide 2: La Empresa -->
+        <div class="slide">
+            <h2>🏢 La Empresa: Gano Excel</h2>
+            
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <span class="stat-number">30</span>
+                    Años de operación
+                </div>
+                <div class="stat-card">
+                    <span class="stat-number">70+</span>
+                    Países de presencia
+                </div>
+                <div class="stat-card">
+                    <span class="stat-number">Miles de millones</span>
+                    Facturación anual (USD)
+                </div>
+            </div>
+
+            <h3>🌏 Origen y Filosofía</h3>
+            <ul>
+                <li><strong>Fundador:</strong> Dr. Leao Sun Seng (científico especializado en ganoderma)</li>
+                <li><strong>Origen:</strong> Malasia</li>
+                <li><strong>Compromiso:</strong> "Entrar para quedarse para siempre"</li>
+                <li><strong>Misión:</strong> Llevar salud y prosperidad a las personas</li>
+            </ul>
+
+            <div class="highlight-box">
+                🏆 <strong>Reconocimiento:</strong> Empresa condecorada por gobiernos nacionales como "empresa ejemplar" en múltiples países
+            </div>
+        </div>
+
+        <!-- Slide 3: El Producto - Ganoderma -->
+        <div class="slide">
+            <h2>🍄 El Producto: Ganoderma Lucidum</h2>
+            
+            <h3>¿Qué es el Ganoderma?</h3>
+            <ul>
+                <li>Hongo medicinal estudiado por <strong>más de 4,000 años</strong> en Asia</li>
+                <li>Contiene <strong>más de 200 nutrientes</strong></li>
+                <li>Más de <strong>150 antioxidantes</strong> descubiertos</li>
+                <li>De más de 200 variedades naturales, solo <strong>6 son beneficiosas</strong> para la salud</li>
+            </ul>
+
+            <div class="benefits-grid">
+                <div class="benefit-item">✨ <strong>Limpia</strong> las células</div>
+                <div class="benefit-item">🔋 <strong>Nutre</strong> el organismo</div>
+                <div class="benefit-item">🌱 <strong>Rejuvenece</strong> las células</div>
+                <div class="benefit-item">🧼 <strong>Desintoxica</strong> el cuerpo</div>
+                <div class="benefit-item">🛡️ <strong>Fortalece</strong> el sistema inmunológico</div>
+                <div class="benefit-item">⚡ <strong>Elimina</strong> radicales libres</div>
+            </div>
+
+            <h3>🔬 Innovación de Gano Excel</h3>
+            <ul>
+                <li>Fusión de las <strong>6 mejores variedades</strong> en un "súper hongo"</li>
+                <li>Cultivo en <strong>las fincas más grandes del mundo</strong> (Malasia)</li>
+                <li><strong>Propiedad intelectual</strong> del extracto (sin competencia)</li>
+                <li>Incorporación en <strong>productos de consumo masivo</strong></li>
+            </ul>
+        </div>
+
+        <!-- Slide 4: Productos -->
+        <div class="slide">
+            <h2>🛒 Línea de Productos en El Salvador</h2>
+            
+            <p><strong>El ganoderma se incorpora en productos que todos consumimos diariamente:</strong></p>
+            
+            <div class="product-showcase">
+                <div class="product-item">☕ Ganocafé 3 en 1</div>
+                <div class="product-item">☕ Ganocafé Clásico</div>
+                <div class="product-item">🍫 Gano Chocolate</div>
+                <div class="product-item">🥛 Latte Rico</div>
+                <div class="product-item">☕ Mocha Rico</div>
+            </div>
+
+            <div class="highlight-box">
+                💡 <strong>Ventaja competitiva:</strong> Productos de consumo masivo (100% de la población los necesita) + Valor agregado medicinal único = Mercado ilimitado sin competencia
+            </div>
+
+            <h3>❓ Reflexiona:</h3>
+            <ul>
+                <li>¿Quién no toma café?</li>
+                <li>¿Quién no consume chocolate?</li>
+                <li>¿Quién no disfruta de una bebida caliente?</li>
+                <li>¿Quién no quiere cuidar su salud mientras consume algo delicioso?</li>
+            </ul>
+        </div>
+
+        <!-- Slide 5: Modelo de Negocio -->
+        <div class="slide">
+            <h2>💼 Modelo de Negocio: Red de Mercadeo</h2>
+            
+            <h3>🎯 Tu Tarea Principal</h3>
+            <div class="process-steps">
+                <div class="step">
+                    <div class="step-number">1</div>
+                    <div>Cambiar de marca</div>
+                </div>
+                <div class="step">
+                    <div class="step-number">2</div>
+                    <div>Hacer amigos</div>
+                </div>
+                <div class="step">
+                    <div class="step-number">3</div>
+                    <div>Compartir información</div>
+                </div>
+                <div class="step">
+                    <div class="step-number">4</div>
+                    <div>Recibir comisiones</div>
+                </div>
+            </div>
+
+            <h3>💰 Cómo Generas Ingresos</h3>
+            <ul>
+                <li>Enseñas a las personas a <strong>cambiar de marcas tradicionales</strong> a Gano Excel</li>
+                <li>Gano Excel te paga <strong>comisiones semanales de por vida</strong> por las compras de tu red</li>
+                <li>Cuando tu red crece, <strong>tus ingresos crecen automáticamente</strong></li>
+                <li>No necesitas inventario, empleados, ni preocuparte por logística</li>
+            </ul>
+
+            <div class="highlight-box">
+                🚀 <strong>"Tu tarea es tomar café y hacer amigos"</strong><br>
+                La empresa se encarga de: fabricación, distribución, aplicaciones, permisos legales, oficinas, empleados.
+            </div>
+        </div>
+
+        <!-- Slide 6: Capitalismo Solidario -->
+        <div class="slide">
+            <h2>🤝 Capitalismo Solidario</h2>
+            
+            <div class="pyramid-comparison">
+                <div class="pyramid-box traditional-pyramid">
+                    <h3>❌ Empleo Tradicional</h3>
+                    <p><strong>Pirámide Cerrada</strong></p>
+                    <ul style="text-align: left; margin-top: 15px;">
+                        <li>Tu jefe no quiere que sepas más que él</li>
+                        <li>Jerarquía fija e intocable</li>
+                        <li>Competencia interna</li>
+                        <li>Límite salarial predefinido</li>
+                    </ul>
+                </div>
+                
+                <div class="pyramid-box gano-pyramid">
+                    <h3>✅ Red de Mercadeo</h3>
+                    <p><strong>Pirámide Colaborativa (Sistema Binario)</strong></p>
+                    <ul style="text-align: left; margin-top: 15px;">
+                        <li>Todos quieren que subas</li>
+                        <li>Cooperación, no competencia</li>
+                        <li>Si tu equipo gana, tú ganas más</li>
+                        <li>Sin límites de crecimiento</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="highlight-box">
+                💡 <strong>Principio clave:</strong> "Si al de abajo le va bien, al de arriba le va bien"<br>
+                Por eso todos están interesados en tu éxito y crecimiento.
+            </div>
+        </div>
+
+        <!-- Slide 7: Sistema de Formación -->
+        <div class="slide">
+            <h2>📚 Sistema de Formación y Duplicación</h2>
+            
+            <h3>🎓 Lo que aprenderás:</h3>
+            <div class="benefits-grid">
+                <div class="benefit-item">🎯 Cómo mostrar el proyecto</div>
+                <div class="benefit-item">🗣️ Cómo hablar del producto</div>
+                <div class="benefit-item">👨‍💼 Cómo ser un líder</div>
+                <div class="benefit-item">👥 Cómo construir un equipo</div>
+                <div class="benefit-item">💰 Inteligencia financiera</div>
+                <div class="benefit-item">❤️ Inteligencia emocional</div>
+            </div>
+
+            <h3>💪 Beneficios del sistema:</h3>
+            <ul>
+                <li><strong>Formación gratuita:</strong> Capacitaciones, audios, libros del negocio</li>
+                <li><strong>Sin costo adicional:</strong> Los líderes enseñan gratis (solo se cobran gastos mínimos de auditorio)</li>
+                <li><strong>Transformación personal:</strong> "La mejor universidad de mi vida"</li>
+                <li><strong>Habilidades transferibles:</strong> Útiles para cualquier área de la vida</li>
+            </ul>
+
+            <div class="highlight-box">
+                🌟 <strong>No importa si eres tímido, sin experiencia o sin contactos</strong><br>
+                El sistema está diseñado para transformar tus debilidades en fortalezas.
+            </div>
+        </div>
+
+        <!-- Slide 8: Ventajas y Riesgos -->
+        <div class="slide">
+            <h2>⚖️ Ventajas y Gestión de Riesgos</h2>
+            
+            <h3>✅ Ventajas Principales:</h3>
+            <ul>
+                <li><strong>Riesgo cero:</strong> Recuperas 100% de tu inversión inicial desde el primer día</li>
+                <li><strong>Sin patrimonio en riesgo:</strong> La empresa asume todos los costos operativos</li>
+                <li><strong>Ingresos pasivos:</strong> Comisiones de por vida de tu red</li>
+                <li><strong>Empresa sólida:</strong> 30 años de experiencia y reconocimiento mundial</li>
+                <li><strong>Producto único:</strong> Sin competencia real en el mercado</li>
+            </ul>
+
+            <h3>⏱️ Expectativas Realistas:</h3>
+            <ul>
+                <li><strong>No es dinero fácil:</strong> Requiere trabajo, disciplina y constancia</li>
+                <li><strong>Tiempo de desarrollo:</strong> 3-6 años para resultados significativos</li>
+                <li><strong>Compromiso necesario:</strong> Formación continua y trabajo en equipo</li>
+            </ul>
+
+            <div class="highlight-box">
+                ⚠️ <strong>La pregunta no es si Gano Excel funciona (ya está demostrado)</strong><br>
+                La pregunta es: <strong>¿Estás dispuesto/a a trabajar y comprometerte?</strong>
+            </div>
+        </div>
+
+        <!-- Slide 9: Call to Action -->
+        <div class="slide cta">
+            <h2>🚀 ¿Estás Listo para Cambiar tu Futuro?</h2>
+            
+            <div style="font-size: 1.3em; margin: 30px 0;">
+                <p><strong>Gano Excel ofrece:</strong></p>
+                <p>✨ Una empresa sólida con 30 años de experiencia</p>
+                <p>🍄 Un producto único sin competencia</p>
+                <p>📚 Un sistema completo de formación</p>
+                <p>💰 Una oportunidad real de libertad financiera</p>
+            </div>
+
+            <div style="background: rgba(255,255,255,0.2); padding: 20px; border-radius: 10px; margin: 20px 0;">
+                <h3 style="color: white; border: none;">💭 Pregúntate:</h3>
+                <p>¿Qué tan grandes son tus sueños?</p>
+                <p>Si la respuesta es "demasiado grandes"...</p>
+                <p><strong>¡Bienvenido/a a Gano Excel!</strong></p>
+            </div>
+
+            <p style="font-size: 1.1em; margin-top: 30px;">
+                <strong>No encontrarás una mejor oportunidad de negocio en América Latina y Estados Unidos.</strong>
+            </p>
+        </div>
+
+        <!-- Slide 10: Mensaje Final -->
+        <div class="slide final-message">
+            <h2>💼 ¿Ya Tienes un Trabajo?</h2>
+            
+            <div style="font-size: 1.2em; margin: 30px 0; line-height: 1.6;">
+                <p><strong>Si tú tienes un trabajo que no quieres dejar pero quieres formar parte de mi familia en Gano Excel...</strong></p>
+                
+                <div style="background: rgba(255,255,255,0.2); padding: 25px; border-radius: 15px; margin: 25px 0;">
+                    <p style="font-size: 1.3em; font-weight: bold;">
+                        🤝 <strong>Permíteme ayudarte a construir tu red para que tú puedas ganar</strong>
+                    </p>
+                </div>
+                
+                <p>No importa si estás ocupado con tu empleo actual. Podemos trabajar juntos para desarrollar tu negocio de Gano Excel de manera gradual y efectiva.</p>
+                
+                <div style="background: rgba(255,255,255,0.15); padding: 20px; border-radius: 10px; margin: 20px 0; border-left: 4px solid white;">
+                    <p style="font-weight: bold; font-size: 1.1em;">
+                        💡 <strong>¿Cómo funciona?</strong><br>
+                        Tú pones las personas, yo te ayudo a formarlas y a explicarles el negocio
+                    </p>
+                </div>
+                
+                <p style="margin-top: 20px; font-weight: bold;">
+                    🌟 Tu éxito es mi éxito. ¡Construyamos juntos tu futuro financiero!
+                </p>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Performance optimizations
+        document.addEventListener('DOMContentLoaded', function() {
+            // Lazy loading for animations
+            const slides = document.querySelectorAll('.slide');
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.style.animationPlayState = 'running';
+                    }
+                });
+            }, { threshold: 0.1 });
+
+            slides.forEach(slide => {
+                slide.style.animationPlayState = 'paused';
+                observer.observe(slide);
+            });
+
+            // Track user interactions
+            document.addEventListener('click', function(e) {
+                gtag('event', 'click', {
+                    event_category: 'engagement',
+                    event_label: e.target.tagName + ' - ' + (e.target.className || 'no-class')
+                });
+            });
+
+            // Track scroll depth
+            let maxScroll = 0;
+            window.addEventListener('scroll', function() {
+                const scrollPercent = Math.round((window.scrollY / (document.body.scrollHeight - window.innerHeight)) * 100);
+                if (scrollPercent > maxScroll) {
+                    maxScroll = scrollPercent;
+                    if (scrollPercent % 25 === 0) {
+                        gtag('event', 'scroll', {
+                            event_category: 'engagement',
+                            value: scrollPercent,
+                            event_label: 'scroll_depth'
+                        });
+                    }
+                }
+            });
+
+            // Enhanced mobile touch interactions
+            document.querySelectorAll('.stat-card, .step').forEach(element => {
+                element.addEventListener('touchstart', function() {
+                    this.style.transform = 'scale(0.98)';
+                });
+                
+                element.addEventListener('touchend', function() {
+                    this.style.transform = 'scale(1.02)';
+                    setTimeout(() => {
+                        this.style.transform = 'scale(1)';
+                    }, 150);
+                });
+            });
+        });
+
+        // Page load time tracking
+        window.addEventListener('load', function() {
+            const loadTime = performance.timing.loadEventEnd - performance.timing.navigationStart;
+            gtag('event', 'page_load_time', {
+                event_category: 'performance',
+                value: loadTime,
+                event_label: 'full_page_load'
+            });
+        });
+
+        // Error tracking
+        window.addEventListener('error', function(e) {
+            gtag('event', 'exception', {
+                description: e.message,
+                fatal: false
+            });
+        });
+    </script>
+</body>
+</html>
